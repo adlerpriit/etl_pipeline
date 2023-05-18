@@ -53,3 +53,16 @@ def standardize_data(data):
         standardized_data.append(new_row)
     
     return standardized_data
+
+
+if __name__ == "__main__":
+    data = [
+        ["name", "age", "weight"],
+        ["John Doe", "30", "75.5"],
+        ["Jane Doe", "25", "68.2"],
+    ]
+    
+    transformed_data = transform_data(data)
+    standardized_data = standardize_data(transformed_data)
+    for row in standardized_data:
+        print(row)

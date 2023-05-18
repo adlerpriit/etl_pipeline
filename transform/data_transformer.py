@@ -68,4 +68,4 @@ if __name__ == "__main__":
     for row in standardized_data:
         print(row)
 
-print("If you can read this, then you are too close to me")
+print("If you can read this, then you are too close to me or yourself")

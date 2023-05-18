@@ -1,4 +1,6 @@
+#Uus haru
 import csv
+
 
 def extract_data(file_name):
     with open(file_name, 'r') as file:
@@ -8,3 +10,5 @@ def extract_data(file_name):
 
 if __name__ == "__main__":
     extract_data('data.csv')
+
+    #kommentaar suvs

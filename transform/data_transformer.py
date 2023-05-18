@@ -27,23 +27,31 @@ if __name__ == "__main__":
     for row in transformed_data:
         print(row)
 
-
-import csv
-
-def transform_and_write_data(data):
-    transformed_data = []
+def standardize_data(data):
+    """
+    Standardizes numerical data to have a mean of 0 and standard deviation of 1.
+    Assumes the input is a table of data, where each sub-list is a row.
+    """
+    # Get all numerical values
+    numerical_values = [value for row in data[1:] for value in row if isinstance(value, float)]
+    
+    # Calculate the mean and standard deviation
+    mean = sum(numerical_values) / len(numerical_values)
+    std_dev = (sum((x - mean) ** 2 for x in numerical_values) / len(numerical_values)) ** 0.5
+    
+    # Create a new table with standardized numerical values
+    standardized_data = []
     for row in data:
         new_row = []
         for value in row:
-            try:
-                new_row.append(float(value))
-            except ValueError:
+            if isinstance(value, float):
+                new_value = (value - mean) / std_dev
+                new_row.append(new_value)
+            else:
                 new_row.append(value)
-        transformed_data.append(new_row)
+        standardized_data.append(new_row)
     
-    with open('output.csv', 'w', newline='') as file:
-        writer = csv.writer(file)
-        writer.writerows(transformed_data)
+    return standardized_data
 
 if __name__ == "__main__":
     data = [
@@ -52,4 +60,7 @@ if __name__ == "__main__":
         ["Jane Doe", "25", "68.2"],
     ]
     
-    transform_and_write_data(data)
+    transformed_data = transform_data(data)
+    standardized_data = standardize_data(transformed_data)
+    for row in standardized_data:
+        print(row)

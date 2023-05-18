@@ -27,7 +27,6 @@ if __name__ == "__main__":
     for row in transformed_data:
         print(row)
 
-
 def standardize_data(data):
     """
     Standardizes numerical data to have a mean of 0 and standard deviation of 1.
@@ -53,7 +52,6 @@ def standardize_data(data):
         standardized_data.append(new_row)
     
     return standardized_data
-
 
 if __name__ == "__main__":
     data = [

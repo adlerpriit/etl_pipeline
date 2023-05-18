@@ -10,3 +10,5 @@ def extract_data(file_name):
 
 if __name__ == "__main__":
     extract_data('data.csv')
+
+    #kommentaar suvs

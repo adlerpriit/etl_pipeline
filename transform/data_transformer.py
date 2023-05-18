@@ -64,3 +64,5 @@ if __name__ == "__main__":
     standardized_data = standardize_data(transformed_data)
     for row in standardized_data:
         print(row)
+
+print("Hello world")
